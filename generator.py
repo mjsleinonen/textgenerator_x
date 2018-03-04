@@ -1,3 +1,5 @@
+import random
+
 class Markov_words:
     
     "markov-chain-based text generator, .txt as input"  
