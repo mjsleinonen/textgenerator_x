@@ -2,7 +2,7 @@
 def example(filename,arg1,arg2,drop,first="I"):
 
     print("--"*10)
-    mw = Markov_words()
+    mw = MarkovWords()
     mw.getdata(filename,drop)
     mw.occurences(nlast=3)
     mw.stats()
