@@ -1,8 +1,8 @@
 import random
 
-class Markov_words:
+class MarkovWords:
     
-    "markov-chain-based text generator, .txt as input"  
+    #markov-chain-based text generator, .txt as input  
     def __init__(self):
         self.data = []
         self.words = {}
@@ -16,7 +16,7 @@ class Markov_words:
         #self.data = cleantxt
     
     def occurences(self,nlast=1):
-        "goes trough data, creates connection as dictionaries"
+        #goes trough data, creates connection as dictionaries
         for line in self.data:
             for word in line:    
                 if not word in self.words:
@@ -51,13 +51,13 @@ class Markov_words:
                 self.firstones.append(ii)
 
     def anyword(self):
-        "pics a random word from the data"
+        #pics a random word from the data
         rline = lsample(self.data)
         return lsample(rline)        
     
     def makeline(self,first,length,empiric=0.7,cutend=False):
-        "creates a line based on connections, empiric is for how much weight the"
-        "number of occurences have"
+        #creates a line based on connections, empiric is for how much weight the
+        #number of occurences have
         rlist = []
         rlist.append(first)
         word = first
