@@ -1,27 +1,32 @@
+
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Mar  6 14:05:04 2021
+
+@author: Mikko
+"""
+
 "Text functions for reading input"
 
-def readlines(filename):
-    f = open(filename)
-    lines = []
-    strikes = 0
-    while True:
-        rline = f.readline()
-        if rline == "":
-            strikes += 1
-        if strikes > 10:
-            break    
-        lines.append(rline.split())
-    return lines
+def readlines(filename,remove_indents=True):
+    with open(filename) as f:
+        lines = f.readlines()
+    if remove_indents:
+        lines = [line.replace("\n","") for line in lines if line!="\n"]
+    lines = [line.split(" ") for line in lines]
+    return(lines)
+
 
 def csum(vec):return [sum(vec[0:i]) for i in range(1,len(vec)+1)]
 
-def clean(lines,drop=[],lowcase=True):
+def clean(lines,drop=["\n"],lowcase=True):
     rlines = [] 
     
     hots = [".",",",":","/","!","?",";",'"',
             "I\x92m","\x92","\x91","\'",")","("]
 
     for i in lines:
+        print(i)
         if i in drop:
             continue
         line = []
