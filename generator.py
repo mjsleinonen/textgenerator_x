@@ -1,4 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Mar  6 13:48:01 2021
+
+@author: Mikko
+"""
+
 import random
+from textfunctions import *
 
 class MarkovWords:
     
@@ -8,11 +16,11 @@ class MarkovWords:
         self.words = {}
         self.joins = []
     
-    def getdata(self,fname,drop):
+    def get_data(self,fname,drop=["\n"]):
         words = readlines(fname)
-        cleantxt =  clean(words,drop)
-        for i in cleantxt:
-            self.data.append(i)
+        
+        for line in clean(words,drop):
+            self.data.append(line)
         #self.data = cleantxt
     
     def occurences(self,nlast=1):
@@ -114,4 +122,20 @@ class MarkovWords:
             wsum += sum(self.words[i].values())
             ii += 1 
         print("average connections : %.2f"%(float(wsum)/ii))
-        print("number of dead-ends :",de)
+        print("number of deadends :",de)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
