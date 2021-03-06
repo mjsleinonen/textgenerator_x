@@ -8,6 +8,8 @@ Created on Sat Mar  6 14:05:04 2021
 
 "Text functions for reading input"
 
+import random
+
 def readlines(filename,remove_indents=True):
     with open(filename) as f:
         lines = f.readlines()
