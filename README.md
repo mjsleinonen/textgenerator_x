@@ -1,2 +1,2 @@
 # textgenerator_x
-Markov chain-based text generator
+Markov chain-based text generator 
