@@ -26,7 +26,7 @@ class MarkovWords:
                
         for line in self.data:
             index = 0
-            for word in line[0:-1]:
+            for word in line[:-1]:
                 one = word
                 two = line[index+1]
                 if not two in self.words[one]:
