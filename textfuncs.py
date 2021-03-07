@@ -1,4 +1,5 @@
 
+
 # -*- coding: utf-8 -*-
 """
 Created on Sat Mar  6 14:05:04 2021
@@ -9,6 +10,19 @@ Created on Sat Mar  6 14:05:04 2021
 "Text functions for reading input"
 
 import random
+
+def readlines_(filename):
+    f = open(filename)
+    lines = []
+    strikes = 0
+    while True:
+        rline = f.readline()
+        if rline == "":
+            strikes += 1
+        if strikes > 10:
+            break    
+        lines.append(rline.split())
+    return lines
 
 def readlines(filename,remove_indents=True):
     with open(filename) as f:
@@ -24,17 +38,17 @@ def csum(vec):return [sum(vec[0:i]) for i in range(1,len(vec)+1)]
 def clean(lines,drop=["\n"],lowcase=True):
     rlines = [] 
     
-    hots = [".",",",":","/","!","?",";",'"',
+    remove = [":","/","!","?",";",'"',
             "I\x92m","\x92","\x91","\'",")","("]
 
     for i in lines:
-        print(i)
+        #print(i)
         if i in drop:
             continue
         line = []
         for word in i:
             w = word
-            for sign in hots:
+            for sign in remove:
                 w = w.replace(sign,"")
             if w != "I" and lowcase:    
                 w = w.lower()    
@@ -43,9 +57,10 @@ def clean(lines,drop=["\n"],lowcase=True):
         rlines.append(line)        
     return rlines
 
-def lsample(vec,n=1):
-    l = len(vec)
+def lsample(vec,drop=".",n=1):
+    _vec = [word for word in vec] 
+    l = len(_vec)
     if l in [0,1]:
-        return vec[0]
+        return _vec[0]
     rint = random.randint(0,l-1)
-    return vec[rint]
+    return _vec[rint]
