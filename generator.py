@@ -91,7 +91,7 @@ class MarkovWords:
         word = first
         
         i = 1
-        start = True
+        start = False
         while i < length:
             t = 1  
             while self.words[word] == {}:
