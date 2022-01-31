@@ -8,7 +8,7 @@ Created on Sat Mar  6 13:48:01 2021
 import os
 
 from numpy import random
-from textfunctions import *
+from textfuncs import *
 
 class MarkovWords:
     
