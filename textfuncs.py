@@ -11,22 +11,9 @@ Created on Sat Mar  6 14:05:04 2021
 
 import random
 
-def readlines_(filename):
-    f = open(filename)
-    lines = []
-    strikes = 0
-    while True:
-        rline = f.readline()
-        if rline == "":
-            strikes += 1
-        if strikes > 10:
-            break    
-        lines.append(rline.split())
-    return lines
-
 def readlines(filename,remove_indents=True):
     with open(filename) as f:
-        lines = f.readlines()
+        lines = f.read().splitlines()
     if remove_indents:
         lines = [line.replace("\n","") for line in lines if line!="\n"]
     lines = [line.split(" ") for line in lines]
